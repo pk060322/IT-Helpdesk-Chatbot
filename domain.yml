@@ -1,0 +1,835 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - reset_password
+  - account_locked
+  - vpn_not_working
+  - wifi_not_working
+  - outlook_not_opening
+  - system_running_slow
+  - software_install_request
+  - printer_issue
+  - hardware_request_9
+  - check_ticket_status_10
+  - create_support_ticket_11
+  - request_folder_access
+  - report_antivirus_issue
+  - affirm
+  - deny
+  - lost_file_recovery_14
+  - network_drive_issue
+  - escalate_ticket_16
+  - provide_ticket_id_16
+  - submit_feedback
+  - give_rating
+  - give_comment
+  - request_email_signature
+  - report_phishing_email
+  - new_employee_onboarding
+  - calendar_sync_issue
+  - software_crash_22
+  - disk_space_full
+  - blue_screen_or_boot_failure
+  - configuration_support
+  - report_lost_device
+  - setup_remote_access
+  - firewall_policy_issue
+  - general_it_faq
+  - nlu_fallback
+
+
+entities:
+  - software_name_7
+  - hardware_type_9
+  - justification_9
+  - ticket_id_10
+  - issue_type_11
+  - issue_description_11
+  - folder_name
+  - reason
+  - antivirus_name
+  - error_message_13
+  - file_name_14
+  - file_location_14
+  - drive_letter
+  - error_message_15
+  - ticket_id_16
+  - rating
+  - employee_name
+  - joining_date
+  - department
+  - calendar_app
+  - device_type_21
+  - software_name_22
+  - device_type_22
+  - device_type_23
+  - device_type_24
+  - windows_version
+  - config_type
+  - device_os
+  - device_type_26
+  - last_seen_location
+  - report_date
+  - device_type_27
+  - operating_system_27
+  - access_type_27
+ 
+
+
+
+
+slots:
+  confirm_ticket_1:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: affirm
+        value: true
+      - type: from_intent
+        intent: deny
+        value: false
+
+
+  software_name_7:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: software_name_7
+      - type: from_text
+
+  hardware_type_9:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+  justification_9:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+
+  ticket_id_10:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+  # ticket_status:
+  #   type: text
+  #   influence_conversation: false
+
+  issue_type_11:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text   
+  issue_description_11:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text   
+  ticket_id_11:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom  
+
+  folder_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text   
+  reason:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text   
+  access_request_id:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom  
+
+
+  antivirus_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text   
+  error_message_13:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text   
+  issue_id_13:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom  
+
+  file_name_14:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text   
+  file_location_14:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text   
+  issue_id_14:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom   
+
+
+  drive_letter:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text   
+  error_message_15:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text   
+  ticket_id_15:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom 
+
+
+  ticket_id_16:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text   
+  escalate_reason_16:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text 
+
+  rating:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text  
+  comment:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text 
+
+  employee_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+  joining_date:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+  department:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+
+  calendar_app:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+  device_type_21:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+
+  software_name_22:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: software_name_22
+      - type: from_text
+  device_type_22:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+
+  device_type_23:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+
+  device_type_24:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+  windows_version:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+
+  config_type:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+  device_os:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+
+  device_type_26:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+  last_seen_location:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+  report_date:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+
+  device_type_27:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+  operating_system_27:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+  access_type_27:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+
+
+  application_name_28:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+  access_time_28:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+
+
+
+
+
+
+forms:
+  password_reset_form:
+    required_slots:
+      - confirm_ticket_1
+
+  hardware_request_form_9:
+    required_slots:
+      - hardware_type_9
+      - justification_9
+
+  ticket_status_form_10:
+    required_slots:
+      - ticket_id_10
+
+  support_ticket_form_11:
+    required_slots:
+      - issue_type_11
+      - issue_description_11
+
+  folder_access_form:
+    required_slots:
+      - folder_name
+      - reason
+
+  antivirus_issue_form:
+    required_slots:
+      - antivirus_name
+      - error_message_13
+
+  lost_file_recovery_form_14:
+    required_slots:
+      - file_name_14
+      - file_location_14
+
+  network_drive_form:
+    required_slots:
+      - drive_letter
+      - error_message_15
+
+  escalate_ticket_form_16:
+    required_slots:
+      - ticket_id_16
+      - escalate_reason_16
+
+  feedback_form:
+    required_slots:
+      - rating
+      - comment
+
+  new_employee_form:
+    required_slots:
+      - employee_name
+      - joining_date
+      - department
+
+  calendar_issue_form:
+    required_slots:
+      - calendar_app
+      - device_type_21
+
+  software_crash_form_22:
+    required_slots:
+      - software_name_22
+      - device_type_22
+
+  disk_space_form:
+    required_slots:
+      - device_type_23
+
+  blue_screen_form:
+    required_slots:
+      - device_type_24
+      - windows_version
+
+  configuration_support_form:
+    required_slots:
+      - config_type
+      - device_os
+
+  report_lost_device_form:
+    required_slots:
+      - device_type_26
+      - last_seen_location
+      - report_date
+
+
+  setup_remote_access_form:
+    required_slots:
+      - device_type_27
+      - operating_system_27
+      - access_type_27
+
+
+  firewall_policy_issue_form:
+    required_slots:
+      - application_name_28
+      - access_time_28
+
+
+
+
+
+
+
+
+responses:
+  utter_greet:
+    - text: "Hey! How are you?"
+    - text: "Hello! How can I assist you today?"
+
+
+  utter_cheer_up:
+    - text: "Here is something to cheer you up:"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+    - text: "Did that help you?"
+
+  utter_happy:
+    - text: "Great, carry on!"
+
+  utter_goodbye:
+    - text: "Bye"
+    - text: "Goodbye! Have a great day!"
+
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+
+
+
+  utter_reset_password:
+    - text: "To reset your password, please visit the password reset portal: [Reset Portal](https://yourcompany.com/reset). If you're unable to access it, I can help raise a ticket."
+
+  utter_ask_confirm_ticket_1:
+    - text: "Do you want me to raise a ticket for password reset?"
+
+
+  utter_account_locked:
+    - text: "It looks like your account is locked or access is denied. Please try resetting your password at [Account Recovery Portal](https://yourcompany.com/recover). If the issue persists, I can create a support ticket for you."
+
+  utter_vpn_not_working:
+    - text: >
+        Sorry you're having trouble with VPN access. 
+        Please make sure:
+        1. You're using the latest VPN client.
+        2. Your internet is stable.
+        3. You’re connected through your official credentials.
+
+        You can also visit our VPN help page: [VPN Troubleshooting](https://yourcompany.com/vpn-help)
+
+  utter_wifi_not_working:
+    - text: >
+        I'm sorry you're having trouble with the Wi-Fi. Please try the following steps:
+        1. Restart your Wi-Fi router or switch.
+        2. Make sure you're within range of the access point.
+        3. Check if other devices can connect to the network.
+        4. Ensure airplane mode is off and Wi-Fi is enabled on your device.
+
+        Would you like me to raise a ticket for the IT support team to assist further?
+
+  utter_outlook_not_opening:
+    - text: >
+        Sorry you're having trouble with Outlook. Please try the following quick fixes:
+        1. Restart your computer and try again.
+        2. Open Outlook in Safe Mode by typing `Outlook.exe /safe` in Run.
+        3. Check for pending Windows or Office updates.
+        4. Repair Office via Control Panel > Programs > Microsoft Office > Change > Repair.
+
+        Would you like me to raise an IT support ticket for this issue?
+
+  utter_system_running_slow:
+    - text: >
+        Sorry to hear your system is running slow. Please try the following:
+        1. Restart your system and close background applications.
+        2. Clear temporary files using Disk Cleanup.
+        3. Check for software updates and run antivirus scans.
+        4. Avoid opening too many browser tabs or apps at once.
+
+        Would you like me to raise a ticket for technical assistance?
+
+
+
+  utter_ask_software_name_7:
+    - text: "Sure, which software would you like to install?"
+
+  utter_confirm_software_request_7:
+    - text: "Your request to install {software_name_7} has been noted. An IT technician will assist you shortly."
+
+  utter_ask_printer_error_details:
+    - text: "Sorry to hear you're having printer trouble. Can you please describe the issue or error message?"
+
+  utter_troubleshoot_printer_steps:
+    - text: |
+        Here are a few things you can try:
+        1. Make sure the printer is powered on and connected.
+        2. Check the Wi-Fi or cable connection.
+        3. Restart the printer and your system.
+        4. Make sure the correct printer is selected in your print settings.
+        If that doesn't help, I'll escalate this to the IT team.
+
+  utter_printer_ticket_created:
+    - text: "I've logged a support ticket for your printer issue. IT will reach out shortly."
+
+
+  utter_ask_hardware_type_9:
+    - text: "What type of hardware or device are you requesting (e.g., laptop, mouse, keyboard)?"
+
+  utter_ask_justification_9:
+    - text: "Please provide a short justification for this request."
+
+  utter_submit_hardware_request_9:
+    - text: "Thank you! Your request for a new {hardware_type_9} has been submitted. The IT team will review it shortly."
+
+
+  utter_ask_ticket_id_10:
+    - text: "Please provide your ticket ID to check the status."
+
+  utter_ticket_status_10:
+    - text: "The status of ticket {ticket_id_10} is: {ticket_status_10}"
+
+
+  utter_ask_issue_type_11:
+    - text: "Can you briefly describe the type of issue? (e.g., hardware, network, software)"
+  
+  utter_ask_issue_description_11:
+    - text: "Please provide more details about the issue."
+
+  utter_ticket_created_11:
+    - text: "Your ticket has been created successfully! Ticket ID: {ticket_id_11}"
+
+
+  utter_ask_folder_name:
+    - text: "Please specify the name of the shared folder you need access to."
+
+  utter_ask_reason:
+    - text: "Why do you need access to this folder?"
+
+  utter_access_requested:
+    - text: "Access request submitted for folder '{folder_name}' with ID: {access_request_id}. Our IT team will review it shortly."
+
+
+  utter_ask_antivirus_name:
+    - text: "Which antivirus software are you using? (e.g., McAfee, Norton, Windows Defender)"
+
+  utter_ask_error_message_13:
+    - text: "Could you describe the error or issue you're facing?"
+
+  utter_antivirus_issue_recorded:
+    - text: "Thanks. Your antivirus issue with '{antivirus_name}' has been logged with ID: {issue_id_13}. Our support team will check it shortly."
+
+
+  utter_ask_file_name_14:
+    - text: "Please provide the name or type of the file you lost (e.g., report.docx, Excel sheet, PDF)."
+
+  utter_ask_file_location_14:
+    - text: "Where was the file originally located? (e.g., Desktop, Downloads folder, D drive)"
+
+  utter_file_recovery_logged_14:
+    - text: "Thank you. We’ve logged your lost file recovery request for '{file_name_14}' from '{file_location_14}'. Support ticket ID: {issue_id_14}"
+
+  utter_ask_drive_letter:
+    - text: "Which drive letter is showing the issue? (e.g., Z:, Y:)"
+
+  utter_ask_error_message_15:
+    - text: "What error message do you see when trying to access the drive?"
+
+  utter_drive_issue_logged:
+    - text: "Thank you. Your network drive issue for drive '{drive_letter}' has been logged. Ticket ID: {ticket_id_15}. Our IT team will assist you shortly."
+
+
+  utter_ask_ticket_id_16:
+    - text: "Please provide the ticket ID you want to escalate."
+
+  utter_ask_escalate_reason_16:
+    - text: "Why do you want to escalate this ticket?"
+
+  utter_escalation_confirmed_16:
+    - text: "Your ticket {ticket_id_16} has been escalated. A senior support engineer will contact you shortly."
+
+
+  utter_ask_rating:
+    - text: "On a scale of 1 to 5, how would you rate the support you received?"
+
+  utter_ask_comment:
+    - text: "Please provide any additional comments or suggestions."
+
+  utter_feedback_thanks:
+    - text: "Thank you for your feedback! It helps us improve our service."
+
+  utter_email_signature_info:
+    - text: |
+        Sure! To set up your email signature in Outlook:
+        1. Open Outlook.
+        2. Go to **File > Options > Mail > Signatures**.
+        3. Click **New**, type a name, and enter your signature.
+        4. You can set it for new emails and replies.
+        Would you like a sample signature template?
+
+  utter_provide_signature_template:
+    - text: |
+        Here’s a sample signature you can customize:
+
+        ---
+        **John Doe**  
+        IT Support Executive  
+        ABC Corp  
+        📞 +91-9876543210  
+        ✉️ john.doe@abccorp.com  
+        🌐 www.abccorp.com  
+        ---
+
+        Let me know if you’d like help adding your details.
+
+  utter_ask_phishing_details:
+    - text: |
+        Thanks for reporting. Please do not click any links or download attachments from the suspicious email. 
+        Can you provide the sender’s email address or subject line of the suspicious message?
+
+  utter_thank_for_reporting:
+    - text: |
+        Thank you! Your phishing report has been forwarded to the IT security team. 
+        Please delete the email and avoid interacting with it further.
+
+  utter_email_phishing_contact:
+    - text: |
+        You can also forward the suspicious email to: **phishing@yourcompany.com**
+
+
+  utter_ask_employee_name:
+    - text: What is the full name of the new employee?
+
+  utter_ask_joining_date:
+    - text: When is the employee’s joining date?
+
+  utter_ask_department:
+    - text: Which department is the new hire joining?
+
+  utter_submit_onboarding:
+    - text: |
+        Thanks! I've collected the onboarding details for {employee_name}, joining on {joining_date} in the {department} department. 
+        The IT team will proceed with account creation, laptop allocation, and access setup.
+
+  utter_ask_calendar_app:
+    - text: Which calendar application are you facing issues with? (e.g., Outlook, Google Calendar)
+
+  utter_ask_device_type_21:
+    - text: What device are you using? (e.g., Windows laptop, Android phone)
+
+  utter_submit_calendar_issue:
+    - text: Thanks for the details. I've noted that you're having sync issues with {calendar_app} on {device_type_21}. We'll escalate this to the IT support team right away.
+
+
+  utter_ask_software_name_22:
+    - text: Which software or application is crashing or not responding?
+
+  utter_ask_device_type_22:
+    - text: What device are you using? (e.g., Windows PC, Mac, mobile device)
+
+  utter_submit_software_crash_22:
+    - text: Thanks for the details. We’ve logged your issue with {software_name_22} crashing on your {device_type_22}. Our IT team will look into it shortly.
+
+
+  utter_ask_device_type_23:
+    - text: What device are you using? (e.g., desktop, laptop, server, or virtual machine)
+
+  utter_submit_disk_space_form:
+    - text: Thanks! We’ve noted the disk space issue on your {device_type_23}. You may try clearing temporary files or uninstalling unused apps. Our IT team will assist further if needed.
+
+  utter_ask_device_type_24:
+    - text: Could you please specify the device type (e.g., desktop, laptop, virtual machine)?
+
+  utter_ask_windows_version:
+    - text: Which version of Windows are you using? (e.g., Windows 10, 11)
+
+  utter_submit_blue_screen_form:
+    - text: Thank you. We'll escalate the blue screen issue on your {device_type_24} running {windows_version} to our IT support team.
+
+  utter_ask_config_type:
+    - text: What kind of configuration do you need help with? (e.g., proxy, IP address, printer)
+
+  utter_ask_device_os:
+    - text: What operating system are you using? (e.g., Windows 10, macOS, Linux)
+
+  utter_submit_configuration_support_form:
+    - text: Thanks! We've noted your {config_type} configuration request for a {device_os} device and will assist you shortly.
+
+
+  utter_ask_device_type_26:
+    - text: What type of device was lost or stolen? (e.g., laptop, phone, tablet)
+
+  utter_ask_last_seen_location:
+    - text: Where was the device last seen?
+
+  utter_ask_report_date:
+    - text: When did you notice the device was lost or stolen?
+
+  utter_submit_report_lost_device_form:
+    - text: Thanks. We've noted the report of your {device_type_26} lost at {last_seen_location} on {report_date}. Our team will take necessary action.
+
+
+  utter_ask_device_type_27:
+    - text: Which device are you trying to connect from? (e.g., mobile, laptop)
+
+  utter_ask_operating_system_27:
+    - text: What operating system is your remote device using? (e.g., Windows, Android, iOS)
+
+  utter_ask_access_type_27:
+    - text: What kind of access do you need? (e.g., Remote Desktop, VPN)
+
+  utter_submit_setup_remote_access_form:
+    - text: Thank you. We've received your request to set up {access_type_27} from a {device_type_27} running {operating_system_27}. IT will contact you shortly.
+
+  utter_ask_application_name_28:
+    - text: Which application or website are you trying to access?
+
+  utter_ask_access_time_28:
+    - text: When did you face the firewall or policy restriction issue?
+
+  utter_submit_firewall_policy_issue_form:
+    - text: Thank you. A ticket has been created for the firewall/policy restriction affecting access to {application_name_28}. IT will review and respond soon.
+
+  utter_general_it_working_hours:
+    - text: Our IT support team is available Monday to Friday, from 9 AM to 6 PM IST.
+
+  utter_general_it_escalation_matrix:
+    - text: If your issue isn't resolved within 24 hours, escalate it to the IT Team Lead at itlead@example.com. For urgent matters, contact the IT Manager at itmanager@example.com.
+
+
+
+
+
+
+
+actions:
+  - action_raise_password_reset_ticket
+  - action_create_lock_ticket
+  - action_create_vpn_ticket   
+  - action_create_wifi_ticket  
+  - action_create_outlook_ticket   
+  - action_create_slow_system_ticket   
+  - action_handle_software_install_request
+  - action_handle_printer_issue
+  - submit_hardware_request_9
+  - submit_ticket_status_10
+  - submit_support_ticket_11
+  - submit_folder_access_request
+  - submit_antivirus_issue
+  - submit_lost_file_recovery_14
+  - submit_network_drive_issue
+  - submit_escalation_16
+  - action_submit_feedback
+  - action_provide_signature_template
+  - action_log_phishing_email
+  - validate_new_employee_form
+  - action_submit_onboarding_request
+  - validate_calendar_issue_form
+  - action_submit_calendar_sync_issue
+  - validate_software_crash_form_22
+  - action_submit_software_crash_22
+  - validate_disk_space_form
+  - action_submit_disk_space_form
+  - validate_blue_screen_form
+  - action_submit_blue_screen_form
+  - validate_configuration_support_form
+  - action_submit_configuration_support_form
+  - validate_report_lost_device_form
+  - action_submit_report_lost_device_form
+  - validate_setup_remote_access_form
+  - action_submit_setup_remote_access_form
+  - validate_firewall_policy_issue_form
+  - action_submit_firewall_policy_issue_form
+  - action_provide_it_faq
+  - action_chatgpt_fallback
+  - action_fallback_gpt
+
+
+
+
+
+
+
+
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

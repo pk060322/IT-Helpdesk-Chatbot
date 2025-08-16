@@ -1,0 +1,472 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - helo
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+
+- intent: reset_password
+  examples: |
+    - I forgot my password
+    - How can I reset my password?
+    - Need help with password reset
+    - Can't login, need to change password
+    - Help me reset my email password
+    - I need a new password
+    - Unable to access my account, reset password
+
+- intent: account_locked
+  examples: |
+    - My account is locked
+    - I can't log in to my account
+    - Access denied to my email
+    - I'm getting an access denied error
+    - I forgot my password and now my account is blocked
+    - My login is not working
+    - Why is my account locked?
+    - Locked out of my system
+
+- intent: vpn_not_working
+  examples: |
+    - My VPN is not connecting
+    - I can't access the VPN
+    - VPN not working
+    - Remote access is down
+    - Getting an error when connecting to VPN
+    - VPN is failing to connect
+    - Can't login to VPN
+    - I’m unable to connect to the corporate network
+
+- intent: wifi_not_working
+  examples: |
+    - I can't connect to Wi-Fi
+    - Wi-Fi is not working
+    - My internet is down
+    - I am unable to access the Wi-Fi
+    - No internet connection
+    - Trouble connecting to wireless network
+    - Can't access the internet
+    - My laptop won't connect to Wi-Fi
+
+- intent: outlook_not_opening
+  examples: |
+    - I can't open Outlook
+    - Outlook is not working
+    - My email won't open
+    - Unable to access Outlook
+    - The Outlook app is crashing
+    - I’m facing issues with my email
+    - Email not loading
+    - I get an error when opening Outlook
+    - Outlook keeps closing
+
+
+- intent: system_running_slow
+  examples: |
+    - My system is very slow
+    - Laptop running slowly
+    - PC is lagging
+    - Computer performance is poor
+    - Why is my system so slow?
+    - Slow response on my machine
+    - My desktop takes too long to start
+    - My device keeps freezing
+
+
+- intent: software_install_request
+  examples: |
+    - I need to install software
+    - Please help me install MS Office
+    - I want to install Adobe Photoshop
+    - Can I request software installation?
+    - Help with installing Visual Studio
+    - Requesting software installation
+    - Need to install Zoom
+    - Install [Microsoft Excel](software_name_7)
+    - I need [Python](software_name_7) installed on my system
+
+
+- intent: printer_issue
+  examples: |
+    - I can't print anything
+    - Printer is not working
+    - Cannot connect to the printer
+    - My system is not detecting the printer
+    - The printer is offline
+    - Getting an error while printing
+    - Printer not responding
+    - How do I fix my printer?
+    - Can't find printer on the network
+    - Trouble printing a document
+
+
+- intent: hardware_request_9
+  examples: |
+    - I need a new laptop
+    - Requesting a new mouse
+    - Can I get an external monitor?
+    - I want a new keyboard
+    - Need to order hardware
+    - I need a replacement device
+    - How can I request a new device?
+    - I want to request new hardware
+    - My mouse is broken, need a new one
+
+
+- intent: check_ticket_status_10
+  examples: |
+    - What is the status of my ticket?
+    - Can you check my support request?
+    - Check the status of ticket #12345
+    - I want to know the ticket progress
+    - Tell me the update on my issue
+    - Ticket 56789 status?
+    - Has my support request been resolved?
+
+
+- intent: create_support_ticket_11
+  examples: |
+    - I need help with my laptop
+    - Create a support ticket for my issue
+    - Raise a ticket for printer issue
+    - I want to report a problem
+    - Please open a new support case
+    - I’m facing a network problem
+    - Can you log an IT issue for me?
+
+- intent: request_folder_access
+  examples: |
+    - I need access to the finance shared folder
+    - Please give me access to a folder
+    - Can I get access to project files?
+    - Requesting permission to a shared drive
+    - I can't open the HR folder
+    - Grant access to shared folder named HR
+
+- intent: report_antivirus_issue
+  examples: |
+    - My antivirus failed to update
+    - I’m getting an antivirus error
+    - Antivirus isn't working properly
+    - There's an issue with the antivirus
+    - I think my system is unprotected
+    - Antivirus update failed
+    - McAfee is not updating
+    - Bitdefender shows a warning
+
+- intent: affirm
+  examples: |
+    - yes
+    - sure
+    - okay
+    - correct
+    - that's right
+    - please do
+
+- intent: deny
+  examples: |
+    - no
+    - not now
+    - not really
+    - that’s not it
+    - cancel it
+
+- intent: lost_file_recovery_14
+  examples: |
+    - I lost a file from my system
+    - Can you help me recover a deleted document?
+    - A file disappeared from my folder
+    - I accidentally deleted an important file
+    - I need help recovering lost data
+    - A document is missing from my desktop
+    - How to recover a file I lost?
+
+
+- intent: network_drive_issue
+  examples: |
+    - I can't access my network drive
+    - My mapped drive is not opening
+    - Network drive is missing
+    - Drive Z is not accessible
+    - Getting access denied error on shared drive
+    - Why is my network folder unavailable?
+    - Can't connect to company drive
+
+
+- intent: escalate_ticket_16
+  examples: |
+    - I want to escalate my issue
+    - Please escalate my ticket
+    - This issue is urgent, escalate it
+    - Escalate the support case
+    - Raise the priority of my ticket
+    - Can you escalate the ticket?
+    - My problem hasn't been resolved yet, escalate it
+
+- intent: provide_ticket_id_16
+  examples: |
+    - Ticket ID is 123456
+    - The ticket number is 7890
+    - It's ticket 987654
+    - 456789
+
+- intent: submit_feedback
+  examples: |
+    - I want to give feedback
+    - Can I share my feedback?
+    - Here's my feedback on the support
+    - I’d like to rate the service
+    - I have feedback regarding the ticket
+    - Feedback for my last issue
+    - Let me provide some feedback
+
+- intent: give_rating
+  examples: |
+    - I give 4 stars
+    - Rating is 3
+    - It’s 5
+    - I rate it 2
+    - 1 star
+
+- intent: give_comment
+  examples: |
+    - Support was great
+    - It took too long
+    - The agent was helpful
+    - Not satisfied with the response
+    - Everything was perfect
+
+- intent: request_email_signature
+  examples: |
+    - I need help setting up my email signature
+    - Can you set up my email signature?
+    - I want to add a signature to my emails
+    - Help me configure my email signature
+    - Email signature setup
+    - How do I create an email signature?
+    - Set up Outlook email signature
+
+- intent: report_phishing_email
+  examples: |
+    - I received a suspicious email
+    - I want to report a phishing email
+    - I think this email is a scam
+    - Someone sent me a fraudulent email
+    - Report phishing attempt
+    - What should I do if I get a phishing email?
+    - Help me report a spam or scam email
+    - This email looks fake
+
+- intent: new_employee_onboarding
+  examples: |
+    - I want to request onboarding setup for a new employee
+    - Please initiate onboarding for a new joiner
+    - Setup a new employee workstation
+    - New hire IT setup request
+    - I need to create accounts for a new employee
+    - Can you help with onboarding a new team member?
+    - Add a new employee to the system
+    - New employee laptop and account setup
+
+- intent: calendar_sync_issue
+  examples: |
+    - My calendar is not syncing
+    - I can't see my meetings in Outlook
+    - Calendar and Teams are out of sync
+    - I missed a meeting because it didn’t show up
+    - My meetings are not appearing
+    - Outlook calendar sync issue
+    - Can't sync calendar with my phone
+    - Calendar invite is not updating
+
+- intent: software_crash_22
+  examples: |
+    - My software is not responding
+    - The app keeps crashing
+    - I can't open [Photoshop](software_name_22)
+    - [Outlook](software_name_22) stopped working
+    - My [Excel](software_name_22) freezes every time I open it
+    - Program not responding
+    - Getting an error while running [AutoCAD](software_name_22)
+    - [Teams](software_name_22) crashed on launch
+
+- intent: disk_space_full
+  examples: |
+    - I'm getting a disk full warning
+    - My computer says the disk is full
+    - I have no storage left
+    - My C drive is full
+    - I'm running out of space on my laptop
+    - Disk space low
+    - There’s not enough space left on my system
+    - Can't save files due to low disk space
+
+- intent: blue_screen_or_boot_failure
+  examples: |
+    - My computer is showing a blue screen
+    - I see a blue screen error
+    - My PC crashed and won’t start
+    - Blue screen of death appeared
+    - My laptop is stuck on boot
+    - Computer failed to boot
+    - It won’t go past the startup screen
+    - It keeps restarting with a blue screen
+    - Windows crashed with a blue error screen
+
+- intent: configuration_support
+  examples: |
+    - I need help configuring my proxy
+    - How to set up proxy settings?
+    - Please help me configure my IP address
+    - My printer configuration is not working
+    - Can you help me set static IP?
+    - I'm unable to configure my printer
+    - How do I change the IP settings?
+    - Set up printer configuration
+    - Need support with proxy setup
+    - Printer not connecting due to config
+
+- intent: report_lost_device
+  examples: |
+    - I lost my laptop
+    - My device has been stolen
+    - Someone took my company phone
+    - I can't find my work laptop
+    - Reporting a stolen device
+    - My tablet was lost
+    - My mobile is missing
+    - Lost my work computer
+    - Need to report a stolen laptop
+    - My device got lost today
+
+
+- intent: setup_remote_access
+  examples: |
+    - I need help setting up remote desktop
+    - Can you help me access my computer remotely?
+    - How do I connect to my desktop from mobile?
+    - I want to set up remote desktop access
+    - Help me configure RDP
+    - How do I enable mobile access to my work PC?
+    - Remote access is not working
+    - I need VPN and RDP setup
+    - How to use my phone to connect to office PC?
+    - I can't log in remotely
+
+- intent: firewall_policy_issue
+  examples: |
+    - I can't access the website due to firewall
+    - My connection is blocked by a policy
+    - Firewall is restricting my access
+    - The site is being blocked by security policy
+    - I need help bypassing the firewall
+    - Policy restriction is preventing me from opening the app
+    - The firewall is stopping the connection
+    - It says "Blocked by company policy"
+    - I'm getting a firewall warning
+    - Internet access restricted due to policy
+
+- intent: general_it_faq
+  examples: |
+    - What are IT support working hours?
+    - When is the IT helpdesk available?
+    - How do I escalate an issue?
+    - What's the escalation matrix for IT issues?
+    - Who should I contact if my ticket is not resolved?
+    - What is the support team timing?
+    - Can you tell me the IT support hours?
+    - How do I contact the IT supervisor?
+    - Who do I escalate to?
+    - I want to know the escalation process
+
+- intent: out_of_scope
+  examples: |
+    - what's the weather on mars?
+    - sing me a song

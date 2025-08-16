@@ -1,0 +1,86 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+# - story: sad path 1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: affirm
+#   - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: GPT response test
+  steps:
+    - intent: out_of_scope
+    - action: action_fallback_gpt
+
+
+# - story: password reset path
+#   steps:
+#   - intent: reset_password
+#   - action: utter_reset_password
+
+# - story: handle account locked
+#   steps:
+#   - intent: account_locked
+#   - action: utter_account_locked
+
+# - story: vpn troubleshooting
+#   steps:
+#   - intent: vpn_not_working
+#   - action: utter_vpn_not_working
+
+# - story: handle wifi issue
+#   steps:
+#   - intent: wifi_not_working
+#   - action: utter_wifi_not_working
+
+# - story: handle outlook issue
+#   steps:
+#   - intent: outlook_not_opening
+#   - action: utter_outlook_not_opening
+
+# - story: system slow issue
+#   steps:
+#   - intent: system_running_slow
+#   - action: utter_system_running_slow
+
+# - story: Handle software install request
+#   steps:
+#   - intent: software_install_request
+#   - action: utter_ask_software_name_7
+#   - intent: software_install_request
+#   - action: action_handle_software_install_request
+
+# - story: direct software install request
+#   steps:
+#   - intent: software_install_request
+#   - action: action_handle_software_install_request
+
+# - story: user faces printer issue
+#   steps:
+#   - intent: printer_issue
+#   - action: action_handle_printer_issue
+
+
+

@@ -1,0 +1,383 @@
+version: "3.1"
+
+rules:
+
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+    - intent: goodbye
+    - action: utter_goodbye
+
+  - rule: Say 'I am a bot' anytime the user challenges
+    steps:
+    - intent: bot_challenge
+    - action: utter_iamabot
+
+  - rule: Ask to confirm password reset ticket
+    steps:
+      - intent: reset_password
+      - action: utter_reset_password
+      - action: password_reset_form
+      - active_loop: password_reset_form
+      - slot_was_set:
+        - confirm_ticket_1: null
+
+  - rule: Submit password reset form
+    condition:
+      - active_loop: password_reset_form
+    steps:
+      - action: password_reset_form
+      - active_loop: null
+      - slot_was_set:
+          - confirm_ticket_1: true
+      - action: action_raise_password_reset_ticket
+
+  - rule: respond to account locked issue
+    steps:
+    - intent: account_locked
+    - action: utter_account_locked
+
+  - rule: respond to VPN issue
+    steps:
+    - intent: vpn_not_working
+    - action: utter_vpn_not_working
+
+  - rule: respond to wifi issue
+    steps:
+    - intent: wifi_not_working
+    - action: utter_wifi_not_working
+
+  - rule: respond to outlook not opening
+    steps:
+    - intent: outlook_not_opening
+    - action: utter_outlook_not_opening
+
+  - rule: respond to system running slow
+    steps:
+    - intent: system_running_slow
+    - action: utter_system_running_slow
+
+
+  - rule: Ask which software to install
+    steps:
+    - intent: software_install_request
+    - action: utter_ask_software_name_7
+
+       # - rule: Handle software install request
+       #   steps:
+       #   - intent: software_install_request
+       #   - action: utter_ask_software_name_7
+       #   - intent: software_install_request
+       #   - action: action_handle_software_install_request
+
+
+  - rule: Activate hardware request form
+    steps:
+      - intent: hardware_request_9
+      - action: hardware_request_form_9
+      - active_loop: hardware_request_form_9
+
+  - rule: Submit hardware request
+    condition:
+      - active_loop: hardware_request_form_9
+    steps:
+      - action: hardware_request_form_9
+      - active_loop: null
+      - action: submit_hardware_request_9
+   
+   # - rule: Submit hardware request
+   #   steps:
+   #   - intent: hardware_request_9
+   #   - action: hardware_request_form_9
+   #   - active_loop: hardware_request_form_9
+
+   # - rule: Activate hardware request form 
+   #   steps:
+   #   - action: hardware_request_form_9
+   #   - active_loop: null
+   #   - action: submit_hardware_request_9
+
+
+  - rule: Check status of existing support ticket
+    steps:
+    - intent: check_ticket_status_10
+    - action: ticket_status_form_10
+    - active_loop: ticket_status_form_10
+
+  - rule: Submit ticket status form
+    steps:
+    - action: ticket_status_form_10
+    - active_loop: null
+    - action: submit_ticket_status_10
+
+
+  - rule: Start support ticket form
+    steps:
+    - intent: create_support_ticket_11
+    - action: support_ticket_form_11
+    - active_loop: support_ticket_form_11
+
+  - rule: Submit support ticket
+    steps:
+    - action: support_ticket_form_11
+    - active_loop: null
+    - action: submit_support_ticket_11
+
+
+  - rule: Start folder access request form
+    steps:
+      - intent: request_folder_access
+      - action: folder_access_form
+      - active_loop: folder_access_form
+
+  - rule: Submit folder access request
+    steps:
+      - action: folder_access_form
+      - active_loop: null
+      - action: submit_folder_access_request
+
+  - rule: Handle antivirus issue
+    steps:
+      - intent: report_antivirus_issue
+      - action: antivirus_issue_form
+      - active_loop: antivirus_issue_form
+
+  - rule: Submit antivirus issue
+    steps:
+      - action: antivirus_issue_form
+      - active_loop: null
+      - action: submit_antivirus_issue
+
+  - rule: Handle lost file recovery
+    steps:
+      - intent: lost_file_recovery_14
+      - action: lost_file_recovery_form_14
+      - active_loop: lost_file_recovery_form_14
+
+  - rule: Submit lost file recovery
+    steps:
+      - action: lost_file_recovery_form_14
+      - active_loop: null
+      - action: submit_lost_file_recovery_14
+
+  - rule: Handle network drive issue
+    steps:
+      - intent: network_drive_issue
+      - action: network_drive_form
+      - active_loop: network_drive_form
+
+  - rule: Submit network drive issue
+    steps:
+      - action: network_drive_form
+      - active_loop: null
+      - action: submit_network_drive_issue
+
+  - rule: Start escalation process
+    steps:
+      - intent: escalate_ticket_16
+      - action: escalate_ticket_form_16
+      - active_loop: escalate_ticket_form_16
+
+  - rule: Submit escalation form
+    steps:
+      - action: escalate_ticket_form_16
+      - active_loop: null
+      - action: submit_escalation_16
+
+  - rule: Feedback submission
+    steps:
+      - intent: submit_feedback
+      - action: feedback_form
+      - active_loop: feedback_form
+
+  - rule: Submit feedback form
+    steps:
+      - action: feedback_form
+      - active_loop: null
+      - action: action_submit_feedback
+
+
+  - rule: Handle email signature setup
+    steps:
+      - intent: request_email_signature
+      - action: utter_email_signature_info
+
+  - rule: Provide sample signature if requested
+    steps:
+      - intent: Yes, I reported it
+      - action: utter_provide_signature_template
+
+  - rule: Handle phishing email report
+    steps:
+      - intent: report_phishing_email
+      - action: utter_ask_phishing_details
+
+  - rule: Thank after phishing report
+    steps:
+      - intent: affirm
+      - action: utter_thank_for_reporting
+      - action: utter_email_phishing_contact
+
+  - rule: Handle new employee onboarding
+    steps:
+      - intent: new_employee_onboarding
+      - action: new_employee_form
+      - active_loop: new_employee_form
+
+  - rule: Submit onboarding form
+    condition:
+      - active_loop: new_employee_form
+    steps:
+      - action: new_employee_form
+      - active_loop: null
+      - action: utter_submit_onboarding
+      - action: action_submit_onboarding_request
+
+  - rule: Handle calendar sync issue
+    steps:
+      - intent: calendar_sync_issue
+      - action: calendar_issue_form
+      - active_loop: calendar_issue_form
+
+  - rule: Submit calendar sync form
+    condition:
+      - active_loop: calendar_issue_form
+    steps:
+      - action: calendar_issue_form
+      - active_loop: null
+      - action: utter_submit_calendar_issue
+      - action: action_submit_calendar_sync_issue
+
+  - rule: Report software crash
+    steps:
+      - intent: software_crash_22
+      - action: software_crash_form_22
+      - active_loop: software_crash_form_22
+
+  - rule: Submit software crash form
+    condition:
+      - active_loop: software_crash_form_22
+    steps:
+      - action: software_crash_form_22
+      - active_loop: null
+      - action: utter_submit_software_crash_22
+      - action: action_submit_software_crash_22
+
+  - rule: Handle disk space full issue
+    steps:
+      - intent: disk_space_full
+      - action: disk_space_form
+      - active_loop: disk_space_form
+
+  - rule: Submit disk space form
+    condition:
+      - active_loop: disk_space_form
+    steps:
+      - action: disk_space_form
+      - active_loop: null
+      - action: utter_submit_disk_space_form
+      - action: action_submit_disk_space_form
+
+
+  - rule: Handle blue screen or boot failure
+    steps:
+      - intent: blue_screen_or_boot_failure
+      - action: blue_screen_form
+      - active_loop: blue_screen_form
+
+  - rule: Submit blue screen form
+    condition:
+      - active_loop: blue_screen_form
+    steps:
+      - action: blue_screen_form
+      - active_loop: null
+      - action: utter_submit_blue_screen_form
+      - action: action_submit_blue_screen_form
+
+  - rule: Handle configuration support query
+    steps:
+      - intent: configuration_support
+      - action: configuration_support_form
+      - active_loop: configuration_support_form
+
+  - rule: Submit configuration support form
+    condition:
+      - active_loop: configuration_support_form
+    steps:
+      - action: configuration_support_form
+      - active_loop: null
+      - action: utter_submit_configuration_support_form
+      - action: action_submit_configuration_support_form
+
+  - rule: Handle lost device reporting
+    steps:
+      - intent: report_lost_device
+      - action: report_lost_device_form
+      - active_loop: report_lost_device_form
+
+  - rule: Submit lost device form
+    condition:
+      - active_loop: report_lost_device_form
+    steps:
+      - action: report_lost_device_form
+      - active_loop: null
+      - action: utter_submit_report_lost_device_form
+      - action: action_submit_report_lost_device_form
+
+
+  - rule: Handle remote access setup
+    steps:
+      - intent: setup_remote_access
+      - action: setup_remote_access_form
+      - active_loop: setup_remote_access_form
+
+  - rule: Submit remote access form
+    condition:
+      - active_loop: setup_remote_access_form
+    steps:
+      - action: setup_remote_access_form
+      - active_loop: null
+      - action: utter_submit_setup_remote_access_form
+      - action: action_submit_setup_remote_access_form
+
+
+  - rule: Handle firewall or policy issue
+    steps:
+      - intent: firewall_policy_issue
+      - action: firewall_policy_issue_form
+      - active_loop: firewall_policy_issue_form
+
+  - rule: Submit firewall policy form
+    condition:
+      - active_loop: firewall_policy_issue_form
+    steps:
+      - action: firewall_policy_issue_form
+      - active_loop: null
+      - action: utter_submit_firewall_policy_issue_form
+      - action: action_submit_firewall_policy_issue_form
+
+  - rule: Respond to general IT FAQ
+    steps:
+      - intent: general_it_faq
+      - action: action_provide_it_faq
+
+  - rule: ChatGPT fallback
+    steps:
+      - intent: nlu_fallback
+      - action: action_chatgpt_fallback
+
+
+  - rule: Greet user
+    steps:
+      - intent: greet
+      - action: utter_greet
+  
+  - rule: Say goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+  
+  - rule: Handle fallback with ChatGPT
+    steps:
+      - intent: nlu_fallback
+      - action: action_chatgpt_fallback
+  

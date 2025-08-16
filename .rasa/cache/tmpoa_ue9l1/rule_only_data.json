@@ -1,0 +1,26 @@
+{
+  "rule_only_slots": [
+    "confirm_ticket_1"
+  ],
+  "rule_only_loops": [
+    "hardware_request_form_9",
+    "ticket_status_form_10",
+    "firewall_policy_issue_form",
+    "support_ticket_form_11",
+    "calendar_issue_form",
+    "lost_file_recovery_form_14",
+    "folder_access_form",
+    "feedback_form",
+    "password_reset_form",
+    "software_crash_form_22",
+    "escalate_ticket_form_16",
+    "configuration_support_form",
+    "network_drive_form",
+    "antivirus_issue_form",
+    "new_employee_form",
+    "setup_remote_access_form",
+    "blue_screen_form",
+    "disk_space_form",
+    "report_lost_device_form"
+  ]
+}
