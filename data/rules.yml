@@ -4,13 +4,13 @@ rules:
 
   - rule: Say goodbye anytime the user says goodbye
     steps:
-    - intent: goodbye
-    - action: utter_goodbye
+      - intent: goodbye
+      - action: utter_goodbye
 
   - rule: Say 'I am a bot' anytime the user challenges
     steps:
-    - intent: bot_challenge
-    - action: utter_iamabot
+      - intent: bot_challenge
+      - action: utter_iamabot
 
   - rule: Ask to confirm password reset ticket
     steps:
@@ -33,34 +33,34 @@ rules:
 
   - rule: respond to account locked issue
     steps:
-    - intent: account_locked
-    - action: utter_account_locked
+      - intent: account_locked
+      - action: utter_account_locked
 
   - rule: respond to VPN issue
     steps:
-    - intent: vpn_not_working
-    - action: utter_vpn_not_working
+      - intent: vpn_not_working
+      - action: utter_vpn_not_working
 
   - rule: respond to wifi issue
     steps:
-    - intent: wifi_not_working
-    - action: utter_wifi_not_working
+      - intent: wifi_not_working
+      - action: utter_wifi_not_working
 
   - rule: respond to outlook not opening
     steps:
-    - intent: outlook_not_opening
-    - action: utter_outlook_not_opening
+      - intent: outlook_not_opening
+      - action: utter_outlook_not_opening
 
   - rule: respond to system running slow
     steps:
-    - intent: system_running_slow
-    - action: utter_system_running_slow
+      - intent: system_running_slow
+      - action: utter_system_running_slow
 
 
   - rule: Ask which software to install
     steps:
-    - intent: software_install_request
-    - action: utter_ask_software_name_7
+      - intent: software_install_request
+      - action: utter_ask_software_name_7
 
        # - rule: Handle software install request
        #   steps:
@@ -99,28 +99,28 @@ rules:
 
   - rule: Check status of existing support ticket
     steps:
-    - intent: check_ticket_status_10
-    - action: ticket_status_form_10
-    - active_loop: ticket_status_form_10
+      - intent: check_ticket_status_10
+      - action: ticket_status_form_10
+      - active_loop: ticket_status_form_10
 
   - rule: Submit ticket status form
     steps:
-    - action: ticket_status_form_10
-    - active_loop: null
-    - action: submit_ticket_status_10
+      - action: ticket_status_form_10
+      - active_loop: null
+      - action: submit_ticket_status_10
 
 
   - rule: Start support ticket form
     steps:
-    - intent: create_support_ticket_11
-    - action: support_ticket_form_11
-    - active_loop: support_ticket_form_11
+      - intent: create_support_ticket_11
+      - action: support_ticket_form_11
+      - active_loop: support_ticket_form_11
 
   - rule: Submit support ticket
     steps:
-    - action: support_ticket_form_11
-    - active_loop: null
-    - action: submit_support_ticket_11
+      - action: support_ticket_form_11
+      - active_loop: null
+      - action: submit_support_ticket_11
 
 
   - rule: Start folder access request form
@@ -203,12 +203,12 @@ rules:
 
   - rule: Provide sample signature if requested
     steps:
-      - intent: Yes, I reported it
+      - intent: yes_i_reported_it
       - action: utter_provide_signature_template
 
   - rule: Handle phishing email report
     steps:
-      - intent: report_phishing_email
+      - intent: report_phishing_email 
       - action: utter_ask_phishing_details
 
   - rule: Thank after phishing report
@@ -360,11 +360,6 @@ rules:
       - intent: general_it_faq
       - action: action_provide_it_faq
 
-  - rule: ChatGPT fallback
-    steps:
-      - intent: nlu_fallback
-      - action: action_chatgpt_fallback
-
 
   - rule: Greet user
     steps:
@@ -375,9 +370,4 @@ rules:
     steps:
       - intent: goodbye
       - action: utter_goodbye
-  
-  - rule: Handle fallback with ChatGPT
-    steps:
-      - intent: nlu_fallback
-      - action: action_chatgpt_fallback
   

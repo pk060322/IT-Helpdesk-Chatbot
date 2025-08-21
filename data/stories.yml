@@ -29,10 +29,7 @@ stories:
   - intent: deny
   - action: utter_goodbye
 
-- story: GPT response test
-  steps:
-    - intent: out_of_scope
-    - action: action_fallback_gpt
+
 
 
 # - story: password reset path

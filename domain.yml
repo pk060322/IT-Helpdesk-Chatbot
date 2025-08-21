@@ -41,6 +41,9 @@ intents:
   - firewall_policy_issue
   - general_it_faq
   - nlu_fallback
+  - yes_i_reported_it
+  - no_i_did_not_report_it
+  - provide_it_faq
 
 
 entities:
@@ -818,8 +821,6 @@ actions:
   - validate_firewall_policy_issue_form
   - action_submit_firewall_policy_issue_form
   - action_provide_it_faq
-  - action_chatgpt_fallback
-  - action_fallback_gpt
 
 
 

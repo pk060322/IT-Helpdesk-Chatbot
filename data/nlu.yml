@@ -470,3 +470,11 @@ nlu:
   examples: |
     - what's the weather on mars?
     - sing me a song
+
+- intent: yes_i_reported_it
+  examples: |
+    - yes, I reported it
+    - I have already reported
+    - I did report it
+    - yes, I did
+    - yes, I have reported it

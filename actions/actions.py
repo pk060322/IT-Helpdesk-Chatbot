@@ -31,12 +31,8 @@ from typing import Any, Dict, List, Text
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
-from rasa_sdk.forms import FormValidationAction
 from rasa_sdk.types import DomainDict
 import uuid
-import re
-import openai
-from rasa_sdk.events import EventType
 
 
 
@@ -522,74 +518,3 @@ class ActionProvideITFAQ(Action):
         return []
 
 
-# openai.api_key = "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"  # Replace with your real API key
-
-# class ActionChatGPTFallback(Action):
-#     def name(self) -> str:
-#         return "action_chatgpt_fallback"
-
-#     async def run(
-#         self,
-#         dispatcher: CollectingDispatcher,
-#         tracker: Tracker,
-#         domain: dict
-#     ) -> list[EventType]:
-
-#         user_message = tracker.latest_message.get("text")
-
-#         try:
-#             response = openai.ChatCompletion.create(
-#                 model="gpt-3.5-turbo",
-#                 messages=[
-#                     {"role": "system", "content": "You are a helpful IT helpdesk assistant."},
-#                     {"role": "user", "content": user_message}
-#                 ],
-#                 max_tokens=150,
-#                 temperature=0.7
-#             )
-
-#             reply = response.choices[0].message.content.strip()
-#             dispatcher.utter_message(text=reply)
-
-#         except Exception as e:
-#             dispatcher.utter_message(text="Sorry, I couldn't fetch a response from ChatGPT.")
-
-#         return []
-
-
-
-
-import os
-
-from rasa_sdk import Action, Tracker
-from rasa_sdk.executor import CollectingDispatcher
-import openai
-
-openai.api_key = "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"  # Make sure it's your correct key
-
-class ActionFallbackGPT(Action):
-    def name(self):
-        return "action_fallback_gpt"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: dict):
-
-        user_message = tracker.latest_message.get("text")
-        print(f"\n📩 User said: {user_message}")
-
-        try:
-            response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",
-                messages=[{"role": "user", "content": user_message}]
-            )
-            gpt_reply = response.choices[0].message.content
-            print(f"\n✅ GPT Reply: {gpt_reply}")
-            dispatcher.utter_message(text=gpt_reply)
-
-        except Exception as e:
-            error_msg = f"⚠️ GPT API error: {str(e)}"
-            print(error_msg)
-            dispatcher.utter_message(text="Sorry, I couldn't fetch a response from ChatGPT.")
-        
-        return []
